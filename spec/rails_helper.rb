@@ -74,6 +74,10 @@ RSpec.configure do |config|
   config.order = 'random'
   config.infer_spec_type_from_file_location!
 
+  # Enables the `--only-failures` which can be used after another run to re-run
+  # only the previously failed tests.
+  config.example_status_persistence_file_path = "examples.txt"
+
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.

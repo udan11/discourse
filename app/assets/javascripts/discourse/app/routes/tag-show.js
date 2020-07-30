@@ -19,7 +19,7 @@ export default DiscourseRoute.extend(FilterModeMixin, {
   queryParams,
 
   renderTemplate() {
-    const controller = this.controllerFor("tags.show");
+    const controller = this.controllerFor("tag.show");
     this.render("tags.show", { controller });
   },
 
@@ -58,7 +58,7 @@ export default DiscourseRoute.extend(FilterModeMixin, {
   },
 
   afterModel(tag, transition) {
-    const controller = this.controllerFor("tags.show");
+    const controller = this.controllerFor("tag.show");
     controller.setProperties({
       loading: true,
       showInfo: false
@@ -118,7 +118,7 @@ export default DiscourseRoute.extend(FilterModeMixin, {
     const filterText = I18n.t(
       `filters.${this.navMode.replace("/", ".")}.title`
     );
-    const controller = this.controllerFor("tags.show");
+    const controller = this.controllerFor("tag.show");
 
     if (controller.get("model.id")) {
       if (this.category) {
@@ -148,7 +148,7 @@ export default DiscourseRoute.extend(FilterModeMixin, {
   },
 
   setupController(controller, model) {
-    this.controllerFor("tags.show").setProperties({
+    this.controllerFor("tag.show").setProperties({
       model,
       tag: model,
       additionalTags: this.additionalTags,
@@ -176,7 +176,7 @@ export default DiscourseRoute.extend(FilterModeMixin, {
     },
 
     createTopic() {
-      const controller = this.controllerFor("tags.show");
+      const controller = this.controllerFor("tag.show");
 
       if (controller.get("list.draft")) {
         this.openTopicDraft(controller.get("list"));
@@ -208,7 +208,7 @@ export default DiscourseRoute.extend(FilterModeMixin, {
     },
 
     didTransition() {
-      this.controllerFor("tags.show")._showFooter();
+      this.controllerFor("tag.show")._showFooter();
       return true;
     }
   }

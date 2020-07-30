@@ -120,7 +120,7 @@ NavItem.reopenClass({
 
     if (context.tagId && Site.currentProp("filters").includes(filterType)) {
       includesTagContext = true;
-      path += "/tags";
+      path += "/tag";
     }
 
     if (context.category) {
